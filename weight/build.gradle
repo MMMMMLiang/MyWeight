@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
 
 android {
     compileSdkVersion 28
@@ -22,10 +23,24 @@ android {
         }
     }
 
+    lintOptions {
+        abortOnError false
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     api 'androidx.appcompat:appcompat:1.1.0-alpha03'
+}
+
+//添加
+publish {
+    userOrg = 'wsl4833062'//bintray用户名
+    repoName = 'SunWeight'//要传到的maven的名字。你可能有多个maven，要传哪个写哪个。
+    groupId = 'com.sun.view.weight'//jcenter上的路径
+    artifactId = 'weight'//项目名称
+    publishVersion = '1.0.0'//版本号
+    desc = 'this is my android weight'//描述，不重要
+    website = 'https://github.com/MMMMMLiang/MyWeight'//网站，不重要;
 }
