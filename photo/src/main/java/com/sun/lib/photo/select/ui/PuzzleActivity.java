@@ -248,12 +248,12 @@ public class PuzzleActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void initIvMenu() {
-        fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab = findViewById(R.id.fab);
 
-        tvTemplate = (TextView) findViewById(R.id.tv_template);
-        tvTextSticker = (TextView) findViewById(R.id.tv_text_sticker);
-        mRootView = (RelativeLayout) findViewById(R.id.m_root_view);
-        mBottomLayout = (RelativeLayout) findViewById(R.id.m_bottom_layout);
+        tvTemplate = findViewById(R.id.tv_template);
+        tvTextSticker = findViewById(R.id.tv_text_sticker);
+        mRootView = findViewById(R.id.m_root_view);
+        mBottomLayout = findViewById(R.id.m_bottom_layout);
 
         llMenu = (LinearLayout) findViewById(R.id.ll_menu);
         ImageView ivRotate = (ImageView) findViewById(R.id.iv_rotate);
