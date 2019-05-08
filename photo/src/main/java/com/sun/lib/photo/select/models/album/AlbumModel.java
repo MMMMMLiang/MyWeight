@@ -23,7 +23,9 @@ import java.util.ArrayList;
 
 /**
  * 专辑模型
- * Created by huan on 2017/10/20.
+ *
+ * @author huan
+ * @date 2017/10/20
  * <p>
  * Modified by Eagle on 2018/08/31.
  * 修改内容：将AlbumModel的实例化与数据查询分开
@@ -60,7 +62,9 @@ public class AlbumModel {
             public void run() {
                 album.clear();
                 initAlbum(context);
-                if (null != callBack) callBack.onAlbumWorkedCallBack();
+                if (null != callBack) {
+                    callBack.onAlbumWorkedCallBack();
+                }
             }
         }).start();
     }
@@ -99,7 +103,7 @@ public class AlbumModel {
         }
         Cursor cursor = contentResolver.query(contentUri, projections, selection, selectionAllArgs, sortOrder);
         if (cursor == null) {
-//            Log.d(TAG, "call: " + "Empty photos");
+
         } else if (cursor.moveToFirst()) {
             String albumItem_all_name = getAllAlbumName(context);
             String albumItem_video_name = context.getString(R.string.selector_folder_video_easy_photos);
@@ -131,7 +135,8 @@ public class AlbumModel {
                     continue;
                 }
 
-                boolean isVideo = type.contains(Type.VIDEO);// 是否是视频
+                // 是否是视频
+                boolean isVideo = type.contains(Type.VIDEO);
 
                 if (Setting.isOnlyVideo() && !isVideo) {
                     continue;
@@ -157,13 +162,13 @@ public class AlbumModel {
                 if (isVideo && (duration <= Setting.videoMinSecond || duration >= Setting.videoMaxSecond)) {
                     continue;
                 }
-                if (!isVideo && Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                /*if (!isVideo && Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
                     width = cursor.getInt(WidthCol);
                     height = cursor.getInt(HeightCol);
                     if (width < Setting.minWidth || height < Setting.minHeight) {
                         continue;
                     }
-                }
+                }*/
 
                 File file = new File(path);
                 if (!file.exists() || !file.isFile()) {

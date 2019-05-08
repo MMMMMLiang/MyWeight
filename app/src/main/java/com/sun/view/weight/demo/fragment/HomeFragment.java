@@ -37,7 +37,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 EasyPhotos.createAlbum(HomeFragment.this, true, GlideEngine.getInstance())
-                        .setFileProviderAuthority("com.sun.view.weight.demo.fileprovider")
+                        .setFileProviderAuthority("com.sun.view.weight.demo.provider")
                         .start(101);
             }
         });
