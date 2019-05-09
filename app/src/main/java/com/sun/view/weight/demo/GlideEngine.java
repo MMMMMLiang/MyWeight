@@ -16,12 +16,21 @@ import static com.bumptech.glide.load.resource.drawable.DrawableTransitionOption
  */
 
 public class GlideEngine implements ImageEngine {
-    //单例
+    /**
+     * 单例
+     */
     private static GlideEngine instance = null;
-    //单例模式，私有构造方法
+
+    /**
+     * 单例模式，私有构造方法
+     */
     private GlideEngine() {
     }
-    //获取单例
+
+    /**
+     * 获取单例
+     * @return GlideEngine
+     */
     public static GlideEngine getInstance() {
         if (null == instance) {
             synchronized (GlideEngine.class) {
